@@ -246,7 +246,7 @@ app.grid_columnconfigure(0, weight=1)
 app.grid_columnconfigure(1, weight=1)
 
 # Add logo and title to the header frame
-logo_image = ctk.CTkImage(Image.open("icon.png"), size=(80, 80))
+logo_image = ctk.CTkImage(Image.open("icon1.png"), size=(80, 80))
 
 header_frame = ctk.CTkFrame(frame_left)
 header_frame.pack(pady=20, padx=20, anchor="nw", fill="x")

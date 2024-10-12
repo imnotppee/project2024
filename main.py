@@ -368,76 +368,6 @@ btn_search.grid(row=0, column=2, padx=10)
 
 show_employees()
 
-new_palette = {
-    "background": "#2C3639",  # Dark greenish-gray for background
-    "frame_bg": "#3F4E4F",    # Muted teal for frame backgrounds
-    "button_bg": "#A27B5C",   # Soft brown for buttons
-    "button_fg": "#DCD7C9",   # Light beige for button text
-    "label_text": "#DCD7C9",  # Light beige for label text
-    "entry_bg": "#DCD7C9",    # Light beige for input fields
-    "entry_fg": "#2C3639",    # Dark greenish-gray for input text
-    "highlight": "#A27B5C",   # Soft brown for button hover
-    "warning": "#DCD7C9"      # Light beige for warning text
-}
-
-# Apply new colors to the app and frames
-app.configure(fg_color=new_palette["background"])
-header_frame.configure(fg_color=new_palette["frame_bg"])
-frame_left.configure(fg_color=new_palette["frame_bg"])
-frame_right.configure(fg_color=new_palette["frame_bg"])
-label_name_frame.configure(fg_color=new_palette["frame_bg"])
-info_frame.configure(fg_color=new_palette["frame_bg"])
-religion_nationality_frame.configure(fg_color=new_palette["frame_bg"])
-department_position_frame.configure(fg_color=new_palette["frame_bg"])
-salary_frame.configure(fg_color=new_palette["frame_bg"])
-contact_frame.configure(fg_color=new_palette["frame_bg"])
-search_frame.configure(fg_color=new_palette["frame_bg"])
-
-# Apply color to the labels
-label_title.configure(text_color=new_palette["label_text"])
-label_first_name.configure(text_color=new_palette["label_text"])
-label_last_name.configure(text_color=new_palette["label_text"])
-label_dob.configure(text_color=new_palette["label_text"])
-label_age.configure(text_color=new_palette["label_text"])
-label_religion.configure(text_color=new_palette["label_text"])
-label_nationality.configure(text_color=new_palette["label_text"])
-label_department.configure(text_color=new_palette["label_text"])
-label_salary.configure(text_color=new_palette["label_text"])
-label_tel.configure(text_color=new_palette["label_text"])
-label_email.configure(text_color=new_palette["label_text"])
-label_start_day.configure(text_color=new_palette["label_text"])
-label_search.configure(text_color=new_palette["label_text"])
-
-# Apply colors to buttons
-btn_add.configure(
-    fg_color=new_palette["button_bg"], 
-    hover_color=new_palette["highlight"], 
-    text_color=new_palette["button_fg"]
-)
-btn_search.configure(
-    fg_color=new_palette["button_bg"], 
-    hover_color=new_palette["highlight"], 
-    text_color=new_palette["button_fg"]
-)
-
-# Customize the input fields
-entry_first_name.configure(fg_color=new_palette["entry_bg"], text_color=new_palette["entry_fg"])
-entry_last_name.configure(fg_color=new_palette["entry_bg"], text_color=new_palette["entry_fg"])
-dob_entry.configure(fg_color=new_palette["entry_bg"], text_color=new_palette["entry_fg"])
-entry_age.configure(fg_color=new_palette["entry_bg"], text_color=new_palette["entry_fg"])
-entry_salary.configure(fg_color=new_palette["entry_bg"], text_color=new_palette["entry_fg"])
-entry_tel.configure(fg_color=new_palette["entry_bg"], text_color=new_palette["entry_fg"])
-entry_email.configure(fg_color=new_palette["entry_bg"], text_color=new_palette["entry_fg"])
-start_day_entry.configure(fg_color=new_palette["entry_bg"], text_color=new_palette["entry_fg"])
-entry_religion.configure(fg_color=new_palette["entry_bg"], text_color=new_palette["entry_fg"])
-entry_nationality.configure(fg_color=new_palette["entry_bg"], text_color=new_palette["entry_fg"])
-search_entry.configure(fg_color=new_palette["entry_bg"], text_color=new_palette["entry_fg"])
-
-# Apply new colors to the dropdowns (ComboBoxes)
-department_menu.configure(fg_color=new_palette["entry_bg"], text_color=new_palette["entry_fg"])
-position_menu.configure(fg_color=new_palette["entry_bg"], text_color=new_palette["entry_fg"])
-
-
 # Function to open comment window
 def open_comment_window():
     # Create a new top-level window
@@ -559,8 +489,6 @@ btn_view_comments.pack(pady=10)
 
 # (Other existing UI code follows here...)
 
-
-
 # Add this in the search frame section of your existing code
 
 # Edit input field for Employee ID
@@ -669,6 +597,82 @@ def delete_employee(employee_id):
         employees.remove(employee)
         messagebox.showinfo("Success", f"Employee ID {employee_id} has been deleted.")
         show_employees()  # Refresh the employee list
+
+new_palette = {
+    "background": "#2C3639",  # Dark greenish-gray for background
+    "frame_bg": "#3F4E4F",    # Muted teal for frame backgrounds
+    "button_bg": "#A27B5C",   # Soft brown for buttons
+    "button_fg": "#DCD7C9",   # Light beige for button text
+    "label_text": "#DCD7C9",  # Light beige for label text
+    "entry_bg": "#DCD7C9",    # Light beige for input fields
+    "entry_fg": "#2C3639",    # Dark greenish-gray for input text
+    "highlight": "#A27B5C",   # Soft brown for button hover
+    "warning": "#DCD7C9"      # Light beige for warning text
+}
+
+# Apply new colors to the app and frames
+app.configure(fg_color=new_palette["background"])
+header_frame.configure(fg_color=new_palette["frame_bg"])
+frame_left.configure(fg_color=new_palette["frame_bg"])
+frame_right.configure(fg_color=new_palette["frame_bg"])
+label_name_frame.configure(fg_color=new_palette["frame_bg"])
+info_frame.configure(fg_color=new_palette["frame_bg"])
+religion_nationality_frame.configure(fg_color=new_palette["frame_bg"])
+department_position_frame.configure(fg_color=new_palette["frame_bg"])
+salary_frame.configure(fg_color=new_palette["frame_bg"])
+contact_frame.configure(fg_color=new_palette["frame_bg"])
+search_frame.configure(fg_color=new_palette["frame_bg"])
+
+# Apply color to the labels
+label_title.configure(text_color=new_palette["label_text"])
+label_first_name.configure(text_color=new_palette["label_text"])
+label_last_name.configure(text_color=new_palette["label_text"])
+label_dob.configure(text_color=new_palette["label_text"])
+label_age.configure(text_color=new_palette["label_text"])
+label_religion.configure(text_color=new_palette["label_text"])
+label_nationality.configure(text_color=new_palette["label_text"])
+label_department.configure(text_color=new_palette["label_text"])
+label_salary.configure(text_color=new_palette["label_text"])
+label_tel.configure(text_color=new_palette["label_text"])
+label_email.configure(text_color=new_palette["label_text"])
+label_start_day.configure(text_color=new_palette["label_text"])
+label_search.configure(text_color=new_palette["label_text"])
+
+# Apply colors to buttons
+btn_add.configure(
+    fg_color=new_palette["button_bg"], 
+    hover_color=new_palette["highlight"], 
+    text_color=new_palette["button_fg"]
+)
+btn_search.configure(
+    fg_color=new_palette["button_bg"], 
+    hover_color=new_palette["highlight"], 
+    text_color=new_palette["button_fg"]
+)
+
+btn_comment.configure(
+    fg_color=new_palette["button_bg"], 
+    hover_color=new_palette["highlight"], 
+    text_color=new_palette["button_fg"]
+)
+
+btn_delete.configure(
+    fg_color=new_palette["button_bg"], 
+    hover_color=new_palette["highlight"], 
+    text_color=new_palette["button_fg"]
+)
+
+btn_edit.configure(
+    fg_color=new_palette["button_bg"], 
+    hover_color=new_palette["highlight"], 
+    text_color=new_palette["button_fg"]
+)
+
+btn_view_comments.configure(
+    fg_color=new_palette["button_bg"], 
+    hover_color=new_palette["highlight"], 
+    text_color=new_palette["button_fg"]
+)
 
 # Display existing employees
 show_employees()

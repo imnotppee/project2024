@@ -36,11 +36,14 @@ CREATE TABLE Payroll (
 
 -- สร้างตาราง Employee
 CREATE TABLE Employee (
-    id SERIAL PRIMARY KEY,
-    employee_no VARCHAR(100),
-    firstname VARCHAR(100),
-    middlename VARCHAR(100),
-    lastname VARCHAR(100),
+    employee_id SERIAL PRIMARY KEY,
+    firstname VARCHAR(50),
+    lastname VARCHAR(50),
+    region VARCHAR(50),
+    nationality VARCHAR(50),
+    dob DATE,
+    tel VARCHAR(10)
+    email VARCHAR(50)
     department_id INT,
     position_id INT,
     salary NUMERIC(10, 2)

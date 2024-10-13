@@ -368,27 +368,6 @@ btn_search.grid(row=0, column=2, padx=10)
 
 show_employees()
 
-# Function to open comment window
-def open_comment_window():
-    # Create a new top-level window
-    comment_window = ctk.CTkToplevel(app)
-    comment_window.geometry("400x300")
-    comment_window.title("Add Comment")
-
-    # Create label and entry for Employee ID
-    label_emp_id = ctk.CTkLabel(comment_window, text="Enter Employee ID:")
-    label_emp_id.pack(pady=10)
-
-    entry_emp_id = ctk.CTkEntry(comment_window, width=200)
-    entry_emp_id.pack(pady=10)
-
-    # Create label and entry for Comment
-    label_comment = ctk.CTkLabel(comment_window, text="Enter Comment:")
-    label_comment.pack(pady=10)
-
-    entry_comment = ctk.CTkEntry(comment_window, width=200)
-    entry_comment.pack(pady=10)
-
 # ตัวแปรเก็บคอมเมนต์
 comments = {}
 
@@ -397,7 +376,10 @@ def open_comment_window():
     # Create a new top-level window
     comment_window = ctk.CTkToplevel(app)
     comment_window.geometry("400x300")
-    comment_window.title("Add Comment")
+    comment_window.title("Deductions")
+    
+    # Bring the window to the front and make it topmost
+    comment_window.wm_attributes("-topmost", 1)
 
     # Create label and entry for Employee ID
     label_emp_id = ctk.CTkLabel(comment_window, text="Enter Employee ID:")
@@ -449,6 +431,9 @@ def open_view_comments_window():
     view_window = ctk.CTkToplevel(app)
     view_window.geometry("400x300")
     view_window.title("View Comments")
+
+    # Bring the window to the front and make it topmost
+    view_window.wm_attributes("-topmost", 1)
 
     # Create label and combobox for selecting Employee ID
     label_select_emp = ctk.CTkLabel(view_window, text="Select Employee ID:")

@@ -378,6 +378,19 @@ def open_comment_window():
     comment_window.geometry("400x300")
     comment_window.title("Deductions")
     
+    # Get the screen width and height
+    screen_width = comment_window.winfo_screenwidth()
+    screen_height = comment_window.winfo_screenheight()
+
+    # Calculate position to center the window
+    window_width = 400
+    window_height = 300
+    position_x = (screen_width // 2) - (window_width // 2)
+    position_y = (screen_height // 2) - (window_height // 2)
+
+    # Set the geometry of the window with calculated position
+    comment_window.geometry(f"{window_width}x{window_height}+{position_x}+{position_y}")
+
     # Bring the window to the front and make it topmost
     comment_window.wm_attributes("-topmost", 1)
 
@@ -431,6 +444,19 @@ def open_view_comments_window():
     view_window = ctk.CTkToplevel(app)
     view_window.geometry("400x300")
     view_window.title("View Comments")
+
+    # Get the screen width and height
+    screen_width = view_window.winfo_screenwidth()
+    screen_height = view_window.winfo_screenheight()
+
+    # Calculate position to center the window
+    window_width = 400
+    window_height = 300
+    position_x = (screen_width // 2) - (window_width // 2)
+    position_y = (screen_height // 2) - (window_height // 2)
+
+    # Set the geometry of the window with calculated position
+    view_window.geometry(f"{window_width}x{window_height}+{position_x}+{position_y}")
 
     # Bring the window to the front and make it topmost
     view_window.wm_attributes("-topmost", 1)

@@ -6,9 +6,23 @@ conn = psycopg2.connect(
     user = 'postgres',
     password = 'AsPpeez1875'
 )
+try:
+    cursor = conn.cursor()
+    # Check connection
+    print("\nConnection successfully!\n")
 
-cursor = conn.cursor()
+    cursor.execute("SELECT * FROM Employee;")
 
-cursor.execute('CREATE TABLE Employee (id SERIAL PRIMARY KEY, employee_no VARCHAR(100), firstname VARCHAR(100), lastname VARCHAR(100), department_id INT, position_id INT, salary NUMERIC(10, 2));')
+    rows = cursor.fetchone()
 
-conn.commit()
+    if rows:
+        print("Data found in Employee table:")
+        for rows in rows:
+            print(rows)
+    else:
+        print("No data found in Employee table.")
+
+    conn.commit()
+
+except psycopg2.Error as e:
+    print(f"Error connecting to the database: {e}")

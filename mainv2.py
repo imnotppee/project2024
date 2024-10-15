@@ -65,12 +65,13 @@ label_dob = ctk.CTkLabel(info_frame, text="Date of Birth")
 label_dob.grid(row=0, column=0, padx=10)
 dob_entry = ctk.CTkEntry(info_frame, width=150)
 dob_entry.grid(row=0, column=1, padx=10)
-dob_entry.bind("<FocusOut>", lambda event:())  # Trigger age calculation when leaving DOB field
 
 label_age = ctk.CTkLabel(info_frame, text="Age")
 label_age.grid(row=0, column=2, padx=10)
-entry_age = ctk.CTkEntry(info_frame, width=150)
+entry_age = ctk.CTkEntry(info_frame, width=150, state='readonly')
 entry_age.grid(row=0, column=3, padx=10)
+
+dob_entry.bind("<FocusOut>", lambda event: calculate_age(dob_entry, entry_age))
 
 # Create frame for Religion and Nationality
 religion_nationality_frame = ctk.CTkFrame(frame_left)
@@ -137,7 +138,7 @@ entry_email.grid(row=0, column=3, padx=10)
 # Add button to submit employee data
 btn_add = ctk.CTkButton(frame_left, text="Add Employee", command=lambda: add_employees(
     entry_first_name, entry_last_name, entry_religion, entry_nationality,
-    dob_entry, entry_tel, entry_email, department_menu, position_menu, entry_salary
+    dob_entry, entry_tel, entry_email, department_menu, position_menu, entry_salary, generate_employee_id()
 ))
 btn_add.pack(pady=10)
 

@@ -28,7 +28,7 @@ center_window(app, 1000, 600)
 app.resizable(False, False)
 
 # List to store employee data
-employees = []
+employee_data = {}
 
 # Employee ID counter
 employee_id_counter = 1
@@ -79,7 +79,7 @@ def generate_employee_id():
     return employee_id
 
 # Modify the add_employee function
-def add_employee():
+def employee_data():
     global employee_id_counter
 
     first_name = entry_first_name.get()
@@ -167,26 +167,29 @@ def add_employee():
         messagebox.showinfo("Success", f"พนักงาน {first_name} {last_name} ถูกเพิ่มด้วย ID {employee_id}!")
         show_employees()
 
-# Function to display the list of employees without checkboxes
+# Global list to store employee data
+employees = []  # Initialize the employees list
+
+# Function to display the list of employees
 def show_employees():
     # Clear existing widgets in the right frame
     for widget in frame_right.winfo_children():
         widget.destroy()
 
     # Check if the employees list is empty
-    if not employees:
+    if not employees:  # Correctly check if the list is empty
         no_employees_label = ctk.CTkLabel(frame_right, text="No employees to display", text_color="#EEEEEE", font=("Arial", 16))
         no_employees_label.grid(row=0, column=0, padx=10, pady=10, sticky="w")
     else:
         # Loop through the employees and display their information
         for i, employee in enumerate(employees):
             employee_info = (f"{employee['employee_id']} : {employee['first_name']} {employee['last_name']}\n"
-                 f"Position : {employee['position']} ({employee['department']})\n"
-                 f"Salary : ฿{employee['salary']:.2f}\n"
-                 f"Date of Birth : {employee['dob']} (Age : {employee['age']})\n"
-                 f"Tel : {employee['tel']}, Email : {employee['email']}\n"
-                 f"Religion : {employee['religion']}Nationality : {employee['nationality']}\n"
-                 f"Start Day : {employee['start_day']}, Days Worked : {employee['days_worked']}")
+                             f"Position : {employee['position']} ({employee['department']})\n"
+                             f"Salary : ฿{employee['salary']:.2f}\n"
+                             f"Date of Birth : {employee['dob']} (Age : {employee['age']})\n"
+                             f"Tel : {employee['tel']}, Email : {employee['email']}\n"
+                             f"Religion : {employee['religion']}, Nationality : {employee['nationality']}\n"
+                             f"Start Day : {employee['start_day']}, Days Worked : {employee['days_worked']}")
             
             employee_label = ctk.CTkLabel(
                 frame_right, 
@@ -196,6 +199,9 @@ def show_employees():
                 anchor="w"
             )
             employee_label.grid(row=i, column=0, padx=10, pady=10, sticky="w")
+
+# Make sure to define the employees list globally at the beginning of your code
+employees = []
 
 
 def search_employees(search_term):
@@ -349,7 +355,7 @@ entry_email = ctk.CTkEntry(contact_frame, width=150)
 entry_email.grid(row=0, column=3, padx=10)
 
 # Add button to submit employee data
-btn_add = ctk.CTkButton(frame_left, text="Add Employee", command=add_employee)
+btn_add = ctk.CTkButton(frame_left, text="Add Employee", command=employee_data)
 btn_add.pack(pady=10)
 
 # Create frame for Search
